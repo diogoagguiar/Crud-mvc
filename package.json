@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,15 @@
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
     "mysql2": "^3.14.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogoagguiar/Crud-mvc.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/diogoagguiar/Crud-mvc/issues"
+  },
+  "homepage": "https://github.com/diogoagguiar/Crud-mvc#readme"
 }
