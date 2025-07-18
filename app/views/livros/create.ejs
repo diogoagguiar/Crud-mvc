@@ -1,0 +1,33 @@
+<h1>Novo Livro</h1>
+<form method="POST">
+    <label for="ISBN">ISBN:</label><br>
+    <input type="text" id="ISBN" name="ISBN" placeholder="ISBN" value="<%= old.ISBN || '' %>"><br>
+
+    <label for="nome_livro">Nome do Livro:</label><br>
+    <input type="text" id="nome_livro" name="nome_livro" placeholder="Nome do Livro"
+        value="<%= old.nome_livro || '' %>"><br>
+
+    <label for="nome_editora">Nome da Editora:</label><br>
+    <input type="text" id="nome_editora" name="nome_editora" placeholder="Nome da Editora"
+        value="<%= old.nome_editora || '' %>"><br>
+
+    <label for="autor_livro">Autor do Livro:</label><br>
+    <input type="text" id="autor_livro" name="autor_livro" placeholder="Autor do Livro"
+        value="<%= old.autor_livro || '' %>"><br>
+
+    <label for="ano_publicacao">Ano de Publicação:</label><br>
+    <input type="number" id="ano_publicacao" name="ano_publicacao" placeholder="Ano de Publicação"
+        value="<%= old.ano_publicacao || '' %>"><br>
+
+    <label for="assunto">Assunto:</label><br>
+    <input type="text" id="assunto" name="assunto" placeholder="Assunto" value="<%= old.assunto || '' %>"><br>
+
+    <% errors.forEach(error=> { %>
+        <p style="color:red">
+            <%= error.msg %>
+        </p>
+        <% }) %>
+
+            <button type="submit">Salvar Livro</button>
+</form>
+<a href="/livros">Voltar para a lista</a>
