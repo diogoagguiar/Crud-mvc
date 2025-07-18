@@ -1,46 +1,70 @@
-<h1>Lista de Livros</h1>
-<a href="/livros/create">Novo Livro</a>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ISBN</th>
-            <th>Título</th>
-            <th>Editora</th>
-            <th>Autor</th>
-            <th>Ano</th>
-            <th>Assunto</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% livros.forEach(livro=> { %>
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Livros</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container my-5">
+      <h1 class="mb-4">Lista de Livros</h1>
+
+      <% if (typeof success !== 'undefined') { %>
+      <div class="alert alert-success"><%= success %></div>
+      <% } %>
+
+      <a href="/livros/create" class="btn btn-success mb-3">Novo Livro</a>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
             <tr>
-                <td>
-                    <%= livro.ISBN %>
-                </td>
-                <td>
-                    <%= livro.nome_livro %>
-                </td>
-                <td>
-                    <%= livro.nome_editora %>
-                </td>
-                <td>
-                    <%= livro.autor_livro %>
-                </td>
-                <td>
-                    <%= livro.ano_publicacao %>
-                </td>
-                <td>
-                    <%= livro.assunto %>
-                </td>
-                <td>
-                    <a href="/livros/edit/<%= livro.ISBN %>">Editar</a>
-                    <form action="/livros/delete/<%= livro.ISBN %>" method="POST" style="display:inline;">
-                        <button type="submit"
-                            onclick="return confirm('Tem certeza que deseja excluir este livro?');">Excluir</button>
-                    </form>
-                </td>
+              <th>ISBN</th>
+              <th>Título</th>
+              <th>Editora</th>
+              <th>Autor</th>
+              <th>Ano</th>
+              <th>Assunto</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% livros.forEach(livro => { %>
+            <tr>
+              <td><%= livro.ISBN %></td>
+              <td><%= livro.nome_livro %></td>
+              <td><%= livro.nome_editora %></td>
+              <td><%= livro.autor_livro %></td>
+              <td><%= livro.ano_publicacao %></td>
+              <td><%= livro.assunto %></td>
+              <td>
+                <a
+                  href="/livros/edit/<%= livro.ISBN %>"
+                  class="btn btn-sm btn-primary"
+                  >Editar</a
+                >
+                <form
+                  action="/livros/delete/<%= livro.ISBN %>"
+                  method="POST"
+                  class="d-inline"
+                >
+                  <button
+                    type="submit"
+                    class="btn btn-sm btn-danger"
+                    onclick="return confirm('Tem certeza que deseja excluir este livro?');"
+                  >
+                    Excluir
+                  </button>
+                </form>
+              </td>
             </tr>
             <% }) %>
-    </tbody>
-</table>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
